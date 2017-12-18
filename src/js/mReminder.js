@@ -116,14 +116,14 @@
                     locale: settings.formDateTimeLocale
                 });
                 var textArea = mReminderForm.find('.m-reminder__form-text-area');
-                mReminderForm.find('.m-reminder__form-text-area-label').on("click touchdown", function() {
+                mReminderForm.find('.m-reminder__form-text-area-label').on("click touchdown", function () {
                     if (!textArea.hasClass(activeTextAreaClass)) {
                         textArea.fadeIn(300);
                         textArea.addClass(activeTextAreaClass);
                     }
                 });
                 textArea.textareaAutoSize();
-                textArea.on('keyup', function() {
+                textArea.on('keyup', function () {
                     textArea.focus();
                 });
 
@@ -168,7 +168,7 @@
             "<div class='m-mobile-overlay'></div>" +
             "<div class='m-reminder'>" +
             "<div class='m-reminder__form'>" +
-            "<form class='col-xs-12'>" +
+            "<form class='m-reminder__form-inner col-xs-12'>" +
             format(settings.form, settings.formTitle) +
             "</form>" +
             "</div>" +
@@ -216,7 +216,7 @@
         };
         var transitionEventReminderOpen = function (event) {
             if (!mReminder.hasClass(activeClass)) return;
-            if (!mReminderForm.hasClass(activeFormClass))  mReminderForm.removeClass(animationFinishFormClass);
+            if (!mReminderForm.hasClass(activeFormClass)) mReminderForm.removeClass(animationFinishFormClass);
             mReminderForm.addClass(activeFormClass);
             mReminderForm.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventFormOpen);
         };
@@ -227,7 +227,19 @@
         settings.onInitForm(mReminderForm);
 
         mReminder.css('z-index', settings.zIndex);
-        mReminder.mouseenter(open).mouseleave(close);
+        mReminder.mouseenter(function (event) {
+            if ($(event.target).hasClass('m-reminder__icons') ||
+                $(event.target).hasClass('m-reminder') ||
+                $(event.target).hasClass('m-reminder__reminder-text') ||
+                $(event.target).hasClass('m-reminder__form') ||
+                $(event.target).hasClass('m-reminder__form-inner')) open();
+        }).mouseleave(function (event) {
+            if ($(event.target).hasClass('m-reminder__icons') ||
+                $(event.target).hasClass('m-reminder') ||
+                $(event.target).hasClass('m-reminder__reminder-text') ||
+                $(event.target).hasClass('m-reminder__form') ||
+                $(event.target).hasClass('m-reminder__form-inner')) close()
+        });
         mReminderReminder.on("touchstart", open);
         mOverlay.on("touchstart click", close);
         mReminderFormClose.on("touchstart click", close);
@@ -286,7 +298,7 @@
             if (iconInterval !== null)
                 clearInterval(iconInterval);
             if (!isSmallHeight || !isSmallWidth)
-                setTimeout(function() {
+                setTimeout(function () {
                     stopReminderAnimation();
                 }, 1000);
             iconInterval = null;
@@ -305,8 +317,8 @@
             if (!isSmallHeight && !isSmallWidth && settings.reminderAnimation) startReminderAnimation();
             if (activateTimer) clearTimeout(activateTimer);
             mReminderForm.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventFormOpen);
-            mReminderForm.find('input').each(function() {
-               jQuery(this).blur();
+            mReminderForm.find('input').each(function () {
+                jQuery(this).blur();
             });
             mReminder.find('.m-reminder__reminder-text').off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventReminderOpen);
             if (!mReminderForm.hasClass(activeFormClass)) {
@@ -331,7 +343,7 @@
 
         function startReminderAnimation() {
             stopReminderAnimation();
-            reminderAnimation = setTimeout(function() {
+            reminderAnimation = setTimeout(function () {
                 mReminderCircle.addClass(circleAnimationClass);
                 mReminderCircleBorder.addClass(circleBorderAnimationClass);
                 reminderAnimation = setTimeout(startReminderAnimation, settings.reminderAnimationDelay);
@@ -383,8 +395,8 @@
             isSmallWidth = $(window).width() <= settings.mobileWidth;
             isSmallHeight = $(window).height() <= settings.mobileHeight;
             if (isSmallWidth || isSmallHeight) {
-                mReminder.css(isOnLeft ? 'left': 'right', 0);
-                mReminder.css(isOnTop ? 'top': 'bottom', 0);
+                mReminder.css(isOnLeft ? 'left' : 'right', 0);
+                mReminder.css(isOnTop ? 'top' : 'bottom', 0);
                 if (!isOnLeft) {
                     mReminderReminder.css({
                         borderTopLeftRadius: settings.reminderIconSize,

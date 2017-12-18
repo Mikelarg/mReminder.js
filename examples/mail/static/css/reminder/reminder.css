@@ -117,7 +117,7 @@ body.m-no-scroll {
       padding: 20px 15px 30px;
       position: relative; }
     .m-reminder__form_active {
-      max-height: 500px; }
+      max-height: 250px; }
     .m-reminder__form_animation-finish {
       overflow: visible; }
     .m-reminder__form-close {
@@ -125,7 +125,7 @@ body.m-no-scroll {
       top: 15px;
       right: 15px;
       font-size: 17px;
-      color: firebrick;
+      color: black;
       cursor: pointer;
       display: block; }
     .m-reminder__form-separator {
@@ -213,7 +213,7 @@ body.m-no-scroll {
       height: 0;
       text-align: right;
       padding: 0;
-      color: #000000;
+      color: firebrick;
       overflow: hidden; }
       .m-reminder__form-error_active {
         height: 22px; }
