@@ -41,7 +41,6 @@
       &:after {
         content: "";
         position: absolute;
-        z-index: -1;
         top: 50%;
         border-top: 3px solid $color_outer;
         transform: translate(0, -50%);
@@ -81,7 +80,7 @@
     &-time:after {
       content: "для напоминания";
       position: absolute;
-      font-size: 8px;
+      font-size: 7px;
       text-align: left;
       color: #3a3a3a;
       line-height: initial;
@@ -101,6 +100,9 @@
     padding: 0;
     &_last {
       margin-bottom: 0;
+    }
+    &_time {
+      margin-bottom: 5px;
     }
   }
   &-submit {
@@ -160,5 +162,25 @@
       border-bottom-right-radius: 0;
       border-right: none;
     }
+  }
+  &-text-area {
+    display: none;
+    resize: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+    height: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-height: 100px;
+    &_active {
+      height: 48px;
+    }
+    &-label {
+      cursor: pointer;
+      color: $color;
+    }
+  }
+  textarea:focus {
+    outline-color: $color_outer;
   }
 }

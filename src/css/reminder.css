@@ -118,7 +118,7 @@ body.m-no-scroll {
       padding: 20px 15px 30px;
       position: relative; }
     .m-reminder__form_active {
-      max-height: 400px; }
+      max-height: 500px; }
     .m-reminder__form_animation-finish {
       overflow: visible; }
     .m-reminder__form-close {
@@ -138,7 +138,6 @@ body.m-no-scroll {
         .m-reminder__form-separator-line:after {
           content: "";
           position: absolute;
-          z-index: -1;
           top: 50%;
           border-top: 3px solid #FFB835;
           transform: translate(0, -50%);
@@ -168,7 +167,7 @@ body.m-no-scroll {
       .m-reminder__form-label-time:after {
         content: "для напоминания";
         position: absolute;
-        font-size: 8px;
+        font-size: 7px;
         text-align: left;
         color: #3a3a3a;
         line-height: initial;
@@ -185,6 +184,8 @@ body.m-no-scroll {
       padding: 0; }
       .m-reminder__form-group_last {
         margin-bottom: 0; }
+      .m-reminder__form-group_time {
+        margin-bottom: 5px; }
     .m-reminder__form-submit {
       margin-left: 0;
       padding: 0;
@@ -240,6 +241,22 @@ body.m-no-scroll {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-right: none; }
+    .m-reminder__form-text-area {
+      display: none;
+      resize: none;
+      margin-bottom: 10px;
+      font-size: 16px;
+      height: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      max-height: 100px; }
+      .m-reminder__form-text-area_active {
+        height: 48px; }
+      .m-reminder__form-text-area-label {
+        cursor: pointer;
+        color: #ffa400; }
+    .m-reminder__form textarea:focus {
+      outline-color: #FFB835; }
   .m-reminder__icons {
     width: 100%;
     height: 100%;
