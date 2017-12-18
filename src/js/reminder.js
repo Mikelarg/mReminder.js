@@ -195,6 +195,7 @@
         var mReminderIcons = mReminderReminder.find('.m-reminder__icons');
         var mReminderCircle = mReminderReminder.find('.m-reminder__reminder-circle');
         var mReminderCircleBorder = mReminderReminder.find('.m-reminder__reminder-circle-border');
+        var mReminderFormClose = mReminderForm.find('.m-reminder__form-close');
 
         var isOnLeft, isOnTop, isSmallWidth, isSmallHeight;
         var originalWidth = settings.reminderFullSize;
@@ -225,8 +226,10 @@
         settings.onInitForm(mReminderForm);
 
         mReminder.mouseenter(open).mouseleave(close);
-        mReminderReminder.on("touchstart", open)
+        mReminderReminder.on("touchstart", open);
         mOverlay.on("touchstart click", close);
+        mReminderFormClose.on("touchstart click", close);
+
 
         $('body').append(template);
 
@@ -346,6 +349,7 @@
             mReminderForm.removeAttr('style');
             mReminderText.removeAttr('style');
             mReminderInner.removeAttr('style');
+            mReminderFormClose.removeAttr('style');
 
             settings.reminderFullSize = originalWidth;
 
@@ -412,6 +416,7 @@
 
             mReminderForm.width(settings.reminderFullSize);
             if (isOnTop) {
+                mReminderFormClose.css('top', 35);
                 mReminderForm.css("top", (settings.reminderIconSize / 2) + "px");
                 mReminderForm.find('form').css("padding-top", (settings.reminderIconSize / 2) + "px");
                 mReminderForm.css({

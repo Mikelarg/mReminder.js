@@ -25,12 +25,12 @@
   }
   &-close {
     position: absolute;
-    top: 5px;
+    top: 15px;
     right: 15px;
     font-size: 17px;
     color: $close_color;
     cursor: pointer;
-    display: none;
+    display: block;
   }
   &-separator {
     padding: 0;

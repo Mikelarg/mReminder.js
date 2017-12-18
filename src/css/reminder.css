@@ -123,12 +123,12 @@ body.m-no-scroll {
       overflow: visible; }
     .m-reminder__form-close {
       position: absolute;
-      top: 5px;
+      top: 15px;
       right: 15px;
       font-size: 17px;
       color: #d60000;
       cursor: pointer;
-      display: none; }
+      display: block; }
     .m-reminder__form-separator {
       padding: 0;
       margin-left: 0;
