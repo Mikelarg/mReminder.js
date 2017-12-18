@@ -1,4 +1,4 @@
-# mReminder
+# mReminder.js
 Add reminder to your page
 
 ![mReminder Logo](src/img/logo.jpg)
