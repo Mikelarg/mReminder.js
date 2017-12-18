@@ -99,7 +99,7 @@
                 }
                 return !haveErrors;
             },
-            ajaxSuccessCallback: function () {
+            ajaxCallback: function (data) {
                 mReminderForm.find('input').each(function () {
                     jQuery(this).val("");
                 });
@@ -118,7 +118,7 @@
                             url: settings.ajaxUrl,
                             method: settings.ajaxMethod,
                             data: data
-                        }).done(settings.ajaxSuccessCallback);
+                        }).always(settings.ajaxCallback);
                     }
                 });
             }
