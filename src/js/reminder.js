@@ -59,11 +59,11 @@
             "    <button class='form-control col-xs-12 m-reminder__form-input'>Отправить</button>" +
             "  </div>",
             activeDelay: 200,
-            reminderIconSize: 55,
+            reminderIconSize: 60,
             reminderFullSize: 320,
             position: {
                 bottom: '10%',
-                left: '10%'
+                right: '10%'
             },
             ajaxUrl: "",
             ajaxMethod: "POST",
