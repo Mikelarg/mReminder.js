@@ -1,0 +1,36 @@
+@import "variables";
+@import "mixin";
+@import "font";
+@import "animation";
+@import "utils";
+
+.m-reminder {
+  position: fixed;
+  z-index: $zIndex;
+  overflow: visible;
+  &__inner {
+    cursor: pointer;
+    font-size: 27px;
+    z-index: 999;
+    float: left;
+  }
+
+  @import "reminder/reminder-bell";
+  @import "reminder/reminder-form";
+  @import "reminder/reminder-icons";
+}
+
+.m-mobile-overlay {
+  background: black;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.4;
+  display: none;
+}
+
+body.m-no-scroll {
+  overflow: hidden;
+}
