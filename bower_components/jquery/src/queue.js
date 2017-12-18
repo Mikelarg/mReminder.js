@@ -110,7 +110,7 @@ jQuery.fn.extend( {
 	},
 
 	// Get a promise resolved when queues of a certain type
-	// are emptied (fx is the type by default)
+	// are emptied (fx is the type by style)
 	promise: function( type, obj ) {
 		var tmp,
 			count = 1,

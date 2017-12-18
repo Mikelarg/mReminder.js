@@ -1,0 +1,64 @@
+@import "../variables";
+@import "../mixin";
+
+&__icons {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+&__icon {
+  color: $text_color;
+  position: absolute;
+  float: left;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &:before {
+    @include transition(all 0.4s ease);
+    font-family: "reminder";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+  }
+  &_comment:before {
+    content: '\e800';
+  }
+  &_mail:before {
+    content: '\e801';
+  }
+  &_mail-alt:before {
+    content: '\f0e0';
+  }
+  &_comment-empty:before {
+    content: '\f0e5';
+  }
+  &_bell-alt:before {
+    content: '\f0f3';
+  }
+  &_commenting:before {
+    content: '\f27a';
+  }
+  &_commenting-o:before {
+    content: '\f27b';
+  }
+  &_active:before {
+    opacity: 1;
+    animation: m-activate 0.5s;
+    animation-fill-mode: forwards;
+  }
+  &_hide:before {
+    opacity: 0;
+    animation: m-hide 0.5s;
+    animation-fill-mode: forwards;
+  }
+}

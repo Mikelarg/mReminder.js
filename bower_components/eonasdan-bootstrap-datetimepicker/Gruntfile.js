@@ -160,7 +160,7 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['jshint', 'jscs', 'less', 'env:paris', 'connect', 'jasmine']);
     grunt.registerTask('build:travis', [
-        // code style
+        // code default
         'jshint', 'jscs',
         // build
         'uglify', 'less',

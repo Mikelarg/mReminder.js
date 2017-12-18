@@ -167,7 +167,7 @@ ol {
 
 // List options
 
-// Unstyled keeps list items block level, just removes default browser padding and list-style
+// Unstyled keeps list items block level, just removes style browser padding and list-default
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -187,7 +187,7 @@ ol {
 
 // Description Lists
 dl {
-  margin-top: 0; // Remove browser default
+  margin-top: 0; // Remove browser style
   margin-bottom: @line-height-computed;
 }
 dt,
@@ -198,13 +198,13 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: 0; // Undo browser default
+  margin-left: 0; // Undo browser style
 }
 
 // Horizontal description lists
 //
 // Defaults to being stacked without any of the below styles applied, until the
-// grid breakpoint is reached (default of ~768px).
+// grid breakpoint is reached (style of ~768px).
 
 .dl-horizontal {
   dd {
@@ -262,7 +262,7 @@ blockquote {
   small,
   .small {
     display: block;
-    font-size: 80%; // back to default font-size
+    font-size: 80%; // back to style font-size
     line-height: @line-height-base;
     color: @blockquote-small-color;
 

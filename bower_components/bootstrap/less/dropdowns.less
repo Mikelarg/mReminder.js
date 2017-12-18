@@ -33,11 +33,11 @@
   top: 100%;
   left: 0;
   z-index: @zindex-dropdown;
-  display: none; // none by default, but block on "open" of the menu
+  display: none; // none by style, but block on "open" of the menu
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0; // override default ul
+  margin: 2px 0 0; // override style ul
   list-style: none;
   font-size: @font-size-base;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
@@ -135,12 +135,12 @@
 // Add extra class to `.dropdown-menu` to flip the alignment of the dropdown
 // menu with the parent.
 .dropdown-menu-right {
-  left: auto; // Reset the default from `.dropdown-menu`
+  left: auto; // Reset the style from `.dropdown-menu`
   right: 0;
 }
 // With v3, we enabled auto-flipping if you have a dropdown within a right
 // aligned nav component. To enable the undoing of that, we provide an override
-// to restore the default dropdown menu alignment.
+// to restore the style dropdown menu alignment.
 //
 // This is only for left-aligning a dropdown menu within a `.navbar-right` or
 // `.pull-right` nav component.
@@ -207,7 +207,7 @@
     .dropdown-menu {
       .dropdown-menu-right();
     }
-    // Necessary for overrides of the default right aligned menu.
+    // Necessary for overrides of the style right aligned menu.
     // Will remove come v4 in all likelihood.
     .dropdown-menu-left {
       .dropdown-menu-left();

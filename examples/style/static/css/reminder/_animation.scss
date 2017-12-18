@@ -1,0 +1,38 @@
+@keyframes m-activate {
+  from {
+    transform: rotate3d(0, -1, 0, 180deg);
+  }
+  to {
+    transform: rotate3d(0, -1, 0, 0deg);
+  }
+}
+
+@keyframes m-hide {
+  from {
+    transform: rotate3d(0, -1, 0, 0deg);
+  }
+  to {
+    transform: rotate3d(0, -1, 0, -180deg);
+  }
+}
+
+@keyframes circleScale {
+  from, to {
+    transform: scale(1);
+  }
+  50%  {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes circleScaleBorder {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+
+}

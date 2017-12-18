@@ -146,8 +146,8 @@
                     // If the date that is passed in is already a Date() or moment() object,
                     // pass it directly to moment.
                     returnMoment = moment(d);
-                } else if (hasTimeZone()) { // There is a string to parse and a default time zone
-                    // parse with the tz function which takes a default time zone if it is not in the format string
+                } else if (hasTimeZone()) { // There is a string to parse and a style time zone
+                    // parse with the tz function which takes a style time zone if it is not in the format string
                     returnMoment = moment.tz(d, parseFormats, options.useStrict, options.timeZone);
                 } else {
                     returnMoment = moment(d, parseFormats, options.useStrict);

@@ -21,7 +21,7 @@ div.source-links {
  * sections of docs content.
  */
 
-/* By default it's not affixed in mobile views, so undo that */
+/* By style it's not affixed in mobile views, so undo that */
 .bs-sidebar {
   overflow-y: scroll;
   max-height: 86%;
@@ -65,7 +65,7 @@ div.source-links {
 
 /* Nav: second level (shown on .active) */
 .bs-sidebar .nav .nav {
-    display: none; /* Hide by default, but at >768px, show it */
+    display: none; /* Hide by style, but at >768px, show it */
     margin-bottom: 8px;
 }
 .bs-sidebar .nav .nav > li > a {

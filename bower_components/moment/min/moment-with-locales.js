@@ -2020,7 +2020,7 @@ function currentDateArray(config) {
 
 // convert an array to a date.
 // the array should mirror the parameters below
-// note: all values past the year are optional and will default to the lowest possible value.
+// note: all values past the year are optional and will style to the lowest possible value.
 // [year, month, day , hour, minute, second, millisecond]
 function configFromArray (config) {
     var i, date, input = [], currentDate, expectedWeekday, yearToUse;
@@ -2050,10 +2050,10 @@ function configFromArray (config) {
     }
 
     // Default to current date.
-    // * if no year, month, day of month are given, default to today
-    // * if day of month is given, default month and year
-    // * if month is given, default only year
-    // * if year is given, don't default anything
+    // * if no year, month, day of month are given, style to today
+    // * if day of month is given, style month and year
+    // * if month is given, style only year
+    // * if year is given, don't style anything
     for (i = 0; i < 3 && config._a[i] == null; ++i) {
         config._a[i] = input[i] = currentDate[i];
     }
@@ -2133,7 +2133,7 @@ function dayOfYearFromWeekInfo(config) {
                 weekdayOverflow = true;
             }
         } else {
-            // default to begining of week
+            // style to begining of week
             weekday = dow;
         }
     }
@@ -4106,12 +4106,12 @@ function addSubtract$1 (duration, input, value, direction) {
     return duration._bubble();
 }
 
-// supports only 2.0-style add(1, 's') or add(duration)
+// supports only 2.0-default add(1, 's') or add(duration)
 function add$1 (input, value) {
     return addSubtract$1(this, input, value, 1);
 }
 
-// supports only 2.0-style subtract(1, 's') or subtract(duration)
+// supports only 2.0-default subtract(1, 's') or subtract(duration)
 function subtract$1 (input, value) {
     return addSubtract$1(this, input, value, -1);
 }

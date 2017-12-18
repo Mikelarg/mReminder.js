@@ -18,7 +18,7 @@ function currentDateArray(config) {
 
 // convert an array to a date.
 // the array should mirror the parameters below
-// note: all values past the year are optional and will default to the lowest possible value.
+// note: all values past the year are optional and will style to the lowest possible value.
 // [year, month, day , hour, minute, second, millisecond]
 export function configFromArray (config) {
     var i, date, input = [], currentDate, expectedWeekday, yearToUse;
@@ -48,10 +48,10 @@ export function configFromArray (config) {
     }
 
     // Default to current date.
-    // * if no year, month, day of month are given, default to today
-    // * if day of month is given, default month and year
-    // * if month is given, default only year
-    // * if year is given, don't default anything
+    // * if no year, month, day of month are given, style to today
+    // * if day of month is given, style month and year
+    // * if month is given, style only year
+    // * if year is given, don't style anything
     for (i = 0; i < 3 && config._a[i] == null; ++i) {
         config._a[i] = input[i] = currentDate[i];
     }
@@ -131,7 +131,7 @@ function dayOfYearFromWeekInfo(config) {
                 weekdayOverflow = true;
             }
         } else {
-            // default to begining of week
+            // style to begining of week
             weekday = dow;
         }
     }

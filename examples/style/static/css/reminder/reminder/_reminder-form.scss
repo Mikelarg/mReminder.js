@@ -1,0 +1,186 @@
+@import "../variables";
+@import "../mixin";
+
+&__form {
+  @include transition(max-height 0.4s ease);
+  position: absolute;
+  border: 25px;
+  padding: 0;
+  max-height: 0;
+  float: right;
+  right: 0;
+  box-shadow: 0 0 10px #0000001a;
+  background: white;
+  overflow: hidden;
+  form {
+    display: inline-block;
+    padding: 20px 15px 30px;
+    position: relative;
+  }
+  &_active {
+    max-height: $max-height;
+  }
+  &_animation-finish {
+    overflow: visible;
+  }
+  &-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 17px;
+    color: $close_color;
+    cursor: pointer;
+    display: block;
+  }
+  &-separator {
+    padding: 0;
+    margin-left: 0;
+    margin-bottom: 8px;
+    &-line {
+      height: 20px;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        border-top: 3px solid $color_outer;
+        transform: translate(0, -50%);
+        left: 0;
+        right: 0;
+      }
+      &_dashed:after {
+        border-top-style: dashed;
+      }
+      &_left:after {
+        left: 0;
+        right: 5px;
+      }
+      &_right:after {
+        left: 5px;
+        right: 0;
+      }
+    }
+    &-text {
+      text-align: center;
+      color: $color;
+      font-weight: bold;
+    }
+    &_full {
+      margin: auto -20px;
+      margin-bottom: 10px;
+    }
+
+    &_full &-line:after {
+      left: 5px;
+      right: 5px;
+    }
+  }
+  &-label {
+    padding: 0;
+    line-height: 2em;
+    &-time:after {
+      content: "для напоминания";
+      position: absolute;
+      font-size: 7px;
+      text-align: left;
+      color: #3a3a3a;
+      line-height: initial;
+      right: 0;
+      left: 0;
+      font-weight: 500;
+      bottom: -7px;
+    }
+  }
+  &-title {
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  &-group {
+    margin-left: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    &_last {
+      margin-bottom: 0;
+    }
+    &_time {
+      margin-bottom: 5px;
+    }
+  }
+  &-submit {
+    margin-left: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    button {
+      @include transition(all 0.3s ease);
+      background: white;
+      border: 1px solid $color_outer;
+      color: $color;
+      font-weight: 400;
+      box-shadow: 0 0 10px transparentize($color, 0.4);
+    }
+    button:hover {
+      box-shadow: 0 0 3px transparentize($color, 0.1);
+    }
+    button:focus {
+      border: 0;
+      box-shadow: inset 0 0 7px transparentize($color, 0.1), 0 0 3px transparentize($color, 0.1);
+    }
+  }
+  &-error {
+    @include transition(all 0.3s ease);
+    height: 0;
+    text-align: right;
+    padding: 0;
+    color: $error_color;
+    overflow: hidden;
+    &_active {
+      height: 22px;
+    }
+    &_time {
+      margin-top: 5px;
+    }
+  }
+  &-input {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background: #fff none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        font-size: 16px;
+    }
+    .input-group.date & {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+    }
+  }
+  &-text-area {
+    display: none;
+    resize: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+    height: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    max-height: 100px;
+    &_active {
+      height: 48px;
+    }
+    &-label {
+      cursor: pointer;
+      color: $color;
+    }
+  }
+  textarea:focus {
+    outline-color: $color_outer;
+  }
+}

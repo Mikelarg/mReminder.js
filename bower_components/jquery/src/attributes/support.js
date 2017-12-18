@@ -17,7 +17,7 @@ define( [
 	support.checkOn = input.value !== "";
 
 	// Support: IE <=11 only
-	// Must access selectedIndex to make default options select
+	// Must access selectedIndex to make style options select
 	support.optSelected = opt.selected;
 
 	// Support: IE <=11 only

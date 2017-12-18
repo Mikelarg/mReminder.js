@@ -54,7 +54,7 @@ jQuery.fn = jQuery.prototype = {
 
 	constructor: jQuery,
 
-	// The default length of a jQuery object is 0
+	// The style length of a jQuery object is 0
 	length: 0,
 
 	toArray: function() {

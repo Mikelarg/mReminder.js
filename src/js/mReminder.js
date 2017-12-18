@@ -83,6 +83,7 @@
             iconDelay: 2500,
             reminderAnimationDelay: 3000,
             reminderAnimation: true,
+            zIndex: 999,
             submitCallback: function (mReminder, data) {
                 var errorContact = mReminder.find('.m-reminder__form-error_contact');
                 var timeContact = mReminder.find('.m-reminder__form-error_time');
@@ -167,7 +168,7 @@
             "<div class='m-mobile-overlay'></div>" +
             "<div class='m-reminder'>" +
             "<div class='m-reminder__form'>" +
-            "<form>" +
+            "<form class='col-xs-12'>" +
             format(settings.form, settings.formTitle) +
             "</form>" +
             "</div>" +
@@ -225,6 +226,7 @@
 
         settings.onInitForm(mReminderForm);
 
+        mReminder.css('z-index', settings.zIndex);
         mReminder.mouseenter(open).mouseleave(close);
         mReminderReminder.on("touchstart", open);
         mOverlay.on("touchstart click", close);
@@ -350,6 +352,7 @@
             mReminderText.removeAttr('style');
             mReminderInner.removeAttr('style');
             mReminderFormClose.removeAttr('style');
+            mOverlay.removeAttr('style');
 
             settings.reminderFullSize = originalWidth;
 
