@@ -45,14 +45,18 @@
             "  <div class='row  m-reminder__form-separator_full'>" +
             "    <div class='col-xs-12 m-no-padding m-reminder__form-separator-line m-reminder__form-separator-line_dashed'></div>" +
             "  </div>" +
-            "  <div class='form-group row col-xs-12 m-reminder__form-group m-reminder__form-group_last'>" +
+            "  <div class='form-group row col-xs-12 m-reminder__form-group m-reminder__form-group_last hidden-xs'>" +
             "    <label class='col-xs-3 m-reminder__form-label m-reminder__form-label-time'>Время</label>" +
             "    <div class='input-group date col-xs-9'>" +
-            "                    <input type='text' name='time' class='m-reminder__form-input col-xs-12' />" +
+            "                    <input type='text' name='time_pc' class='m-reminder__form-input col-xs-12' />" +
             "                    <span class='input-group-addon'>" +
             "                        <span class='glyphicon glyphicon-calendar'></span>" +
             "                    </span>" +
             "                </div>" +
+            "  </div>" +
+            "  <div class='form-group row col-xs-12 m-reminder__form-group m-reminder__form-group_last visible-xs'>" +
+            "    <label class='col-xs-3 m-reminder__form-label m-reminder__form-label-time'>Время</label>" +
+            "    <input type='datetime-local' name='time_mobile' class='m-reminder__form-input col-xs-9' />" +
             "  </div>" +
             "<div class='col-xs-12 m-reminder__form-error m-reminder__form-error_time'>Введите время напоминания!</div>" +
             "  <div class='form-group row col-xs-12 m-reminder__form-submit'>       " +
@@ -84,7 +88,7 @@
                     errorContact.addClass(activeFormErrorClass);
                     haveErrors = true;
                 }
-                if (data.time) {
+                if (data.time_pc || data.time_mobile) {
                     timeContact.removeClass(activeFormErrorClass);
                 } else {
                     timeContact.addClass(activeFormErrorClass);
@@ -106,7 +110,7 @@
                     locale: settings.formDateTimeLocale
                 });
 
-                mReminderForm.find('.m-reminder__form-submit button').click(function (event) {
+                mReminderForm.find('.m-reminder__form-submit button').on('click touchstart', function (event) {
                     event.preventDefault();
                     var data = mReminderForm.find('form').serializeArray();
                     if (settings.submitCallback(mReminder, objectifyForm(data))) {
@@ -203,7 +207,8 @@
         settings.onInitForm(mReminderForm);
 
         mReminder.mouseenter(open).mouseleave(close);
-        mReminderInner.on("touchstart", open);
+        mReminderInner.on("touchstart click", open);
+        mOverlay.on("touchstart click", close);
 
         $('body').append(template);
 
@@ -264,6 +269,9 @@
             iconInterval = null;
             if (activateTimer) clearTimeout(activateTimer);
             mReminderForm.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventFormClose);
+            mReminderForm.find('input').each(function() {
+                jQuery(this).blur();
+            });
             mReminderForm.removeClass(animationFinishFormClass);
             if (mReminder.hasClass(activeClass)) {
                 transitionEventReminderOpen();
@@ -278,6 +286,9 @@
             if (!isSmallHeight && !isSmallWidth && settings.reminderAnimation) startReminderAnimation();
             if (activateTimer) clearTimeout(activateTimer);
             mReminderForm.off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventFormOpen);
+            mReminderForm.find('input').each(function() {
+               jQuery(this).blur();
+            });
             mReminder.find('.m-reminder__reminder-text').off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventReminderOpen);
             if (!mReminderForm.hasClass(activeFormClass)) {
                 transitionEventFormClose();
@@ -351,10 +362,8 @@
             isSmallWidth = $(window).width() <= settings.mobileWidth;
             isSmallHeight = $(window).height() <= settings.mobileWidth;
             if (isSmallWidth || isSmallHeight) {
-                mReminder.css({
-                    left: isOnLeft ? 0 : $(window).width() - settings.reminderIconSize,
-                    top: isOnTop ? 0 : $(window).height() - settings.reminderIconSize
-                });
+                mReminder.css(isOnLeft ? 'left': 'right', 0);
+                mReminder.css(isOnTop ? 'top': 'bottom', 0);
                 if (!isOnLeft) {
                     mReminderReminder.css({
                         borderTopLeftRadius: settings.reminderIconSize,
