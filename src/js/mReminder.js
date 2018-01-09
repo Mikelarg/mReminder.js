@@ -65,7 +65,8 @@
             "  <div class='form-group row col-xs-12 m-reminder__form-submit'>       " +
             "    <button class='form-control col-xs-12 m-reminder__form-input'>Отправить</button>" +
             "  </div>",
-            activeDelay: 200,
+            openDelay: 200,
+            closeDelay: 1000,
             reminderIconSize: 60,
             reminderFullSize: 320,
             position: {
@@ -310,7 +311,7 @@
             if (mReminder.hasClass(activeClass)) {
                 transitionEventReminderOpen();
             } else {
-                activateTimer = setTimeout(activate, settings.activeDelay);
+                activateTimer = setTimeout(activate, settings.openDelay);
                 mReminder.find('.m-reminder__reminder-text').on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventReminderOpen);
             }
         }
@@ -330,7 +331,7 @@
                 activateTimer = setTimeout(function () {
                     mReminderForm.removeClass(activeFormClass);
                     mReminderForm.removeClass(animationFinishFormClass);
-                }, settings.activeDelay);
+                }, settings.closeDelay);
                 mReminderForm.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", transitionEventFormClose);
             }
 

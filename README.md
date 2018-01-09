@@ -16,7 +16,8 @@ Add reminder to your page
 ### Titles
 * reminderText — bottom reminder message. Default: ```"Напомнить о сайте"```
 ### Delays
-* activeDelay — delay before reminder will open. Default: ```200```
+* openDelay — delay before reminder will start opening. Default: ```200```
+* closeDelay — delay before reminder will start closing. Default: ```1000```
 * reInitDelay — delay to reinit reminder if window rescale. Default: ```600```
 * iconDelay — delay before icon in reminder change. Default: ```2500```
 * reminderAnimationDelay — delay before animation (expanding circle and border around reminder) will be start. Default: ```3000```
