@@ -251,19 +251,8 @@
         });
 
         function activate() {
-            if (!isOnLeft) {
-                mReminderText.css({
-                    left: (-settings.reminderFullSize + settings.reminderIconSize),
-                    right: 0,
-                    paddingRight: (settings.reminderIconSize / 2) + "px"
-                });
-            } else {
-                mReminderText.css({
-                    left: 0,
-                    right: (-settings.reminderFullSize + settings.reminderIconSize),
-                    paddingLeft: (settings.reminderIconSize / 2) + "px"
-                });
-            }
+            var reminderFullSize = settings.reminderFullSize;
+
             mReminder.addClass(activeClass);
             if (isSmallWidth || isSmallHeight) {
                 mReminderText.css({
@@ -271,6 +260,23 @@
                 });
                 mOverlay.fadeIn(400);
                 $('body').addClass(mNoScrollClass);
+            }
+
+            if (isSmallWidth)
+                reminderFullSize = $(window).width();
+            mReminderForm.width(reminderFullSize);
+            if (!isOnLeft) {
+                mReminderText.css({
+                    left: (-reminderFullSize + settings.reminderIconSize),
+                    right: 0,
+                    paddingRight: (settings.reminderIconSize / 2) + "px"
+                });
+            } else {
+                mReminderText.css({
+                    left: 0,
+                    right: (-reminderFullSize + settings.reminderIconSize),
+                    paddingLeft: (settings.reminderIconSize / 2) + "px"
+                });
             }
         }
 
