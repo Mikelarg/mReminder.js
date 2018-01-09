@@ -2,6 +2,12 @@
 Add reminder to your page
 ![mReminder Logo](src/img/logo.jpg)
 
+## Installation
+### [Bower](http://bower.io)
+```
+bower install mReminder.js
+```
+
 ## Examples
 1. Default: https://mikelarg.github.io/mReminder.js/examples/default/index.html
 2. Custom Styles Example: https://mikelarg.github.io/mReminder.js/examples/style/index.html
