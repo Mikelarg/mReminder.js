@@ -153,26 +153,26 @@
 
         var template = $.parseHTML(
             "<div id='m_reminder'>" +
-                "<div class='m-mobile-overlay'></div>" +
-                "<div class='m-reminder'>" +
-                    "<div class='m-reminder__form'>" +
-                        "<form class='m-reminder__form-inner col-xs-12'>" +
-                            settings.form +
-                        "</form>" +
-                    "</div>" +
-                    "<div class='m-reminder__inner'>" +
-                        "<div class='m-reminder__reminder-text'>" +
-                            settings.reminderText +
-                        "</div>" +
-                        "<div class='m-reminder__reminder'>" +
-                            "<div class='m-reminder__reminder-circle'></div>" +
-                            "<div class='m-reminder__reminder-circle-border'></div>" +
-                            "<div class='m-reminder__icons'> " +
-                                iconTemplate +
-                            "</div>" +
-                        "</div>" +
-                    "</div>" +
-                "</div>" +
+            "<div class='m-mobile-overlay'></div>" +
+            "<div class='m-reminder'>" +
+            "<div class='m-reminder__form'>" +
+            "<form class='m-reminder__form-inner col-xs-12'>" +
+            settings.form +
+            "</form>" +
+            "</div>" +
+            "<div class='m-reminder__inner'>" +
+            "<div class='m-reminder__reminder-text'>" +
+            settings.reminderText +
+            "</div>" +
+            "<div class='m-reminder__reminder'>" +
+            "<div class='m-reminder__reminder-circle'></div>" +
+            "<div class='m-reminder__reminder-circle-border'></div>" +
+            "<div class='m-reminder__icons'> " +
+            iconTemplate +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
             "</div>");
         var mTemplate = jQuery(template);
         var mOverlay = mTemplate.find('.m-mobile-overlay');

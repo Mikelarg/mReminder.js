@@ -1,0 +1,20 @@
+{
+  "name": "mReminder.js",
+  "homepage": "https://github.com/Mikelarg/mReminder",
+  "authors": [
+    "Mikhail Murtazin <me@mikhail.email>"
+  ],
+  "description": "Awesome Reminder for your Page",
+  "main": "",
+  "keywords": [
+    "reminder",
+    "js",
+    "jQuery"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "3",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+    "textarea-autosize": "^0.4.2"
+  }
+}
