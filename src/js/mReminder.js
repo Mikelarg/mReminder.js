@@ -25,7 +25,6 @@
             icons: ["bell-alt", "commenting-o", "mail"],
             selectedIcon: "bell-alt",
             reminderText: "Напомнить о сайте",
-            formTitle: "Ваши контактные данные",
             form: " <div class='m-reminder__form-close'>✖</div> " +
             "<h4 class='text-center m-reminder__form-title'>Ваши контактные данные</h4>" +
             "  <div class='form-group row col-xs-12 m-reminder__form-group'>" +
@@ -78,7 +77,6 @@
             mobileWidth: 425,
             mobileHeight: 500,
             formBorderRadius: 20,
-            formDateTimeLocale: "ru",
             reInitDelay: 600,
             iconDelay: 2500,
             reminderAnimationDelay: 3000,
@@ -105,15 +103,17 @@
                 }
                 return !haveErrors;
             },
-            ajaxCallback: function (data) {
-                mReminderForm.find('input').each(function () {
+            ajaxCallback: function (mReminder, data) {
+                mReminder.find('.m-reminder__form input').each(function () {
                     jQuery(this).val("");
                 });
-                close();
+                mReminder.find('.m-reminder__form button').blur();
+
+                return true;
             },
             onInitForm: function (mReminderForm) {
                 mReminderForm.find('.input-group.date').datetimepicker({
-                    locale: settings.formDateTimeLocale
+                    locale: 'ru'
                 });
                 var textArea = mReminderForm.find('.m-reminder__form-text-area');
                 mReminderForm.find('.m-reminder__form-text-area-label').on("click touchdown", function () {
@@ -125,18 +125,6 @@
                 textArea.textareaAutoSize();
                 textArea.on('keyup', function () {
                     textArea.focus();
-                });
-
-                mReminderForm.find('.m-reminder__form-submit button').on('click touchstart', function (event) {
-                    event.preventDefault();
-                    var data = mReminderForm.find('form').serializeArray();
-                    if (settings.submitCallback(mReminder, objectifyForm(data))) {
-                        $.ajax({
-                            url: settings.ajaxUrl,
-                            method: settings.ajaxMethod,
-                            data: data
-                        }).always(settings.ajaxCallback);
-                    }
                 });
             }
         }, options);
@@ -165,26 +153,26 @@
 
         var template = $.parseHTML(
             "<div id='m_reminder'>" +
-            "<div class='m-mobile-overlay'></div>" +
-            "<div class='m-reminder'>" +
-            "<div class='m-reminder__form'>" +
-            "<form class='m-reminder__form-inner col-xs-12'>" +
-            format(settings.form, settings.formTitle) +
-            "</form>" +
-            "</div>" +
-            "<div class='m-reminder__inner'>" +
-            "<div class='m-reminder__reminder-text'>" +
-            settings.reminderText +
-            "</div>" +
-            "<div class='m-reminder__reminder'>" +
-            "<div class='m-reminder__reminder-circle'></div>" +
-            "<div class='m-reminder__reminder-circle-border'></div>" +
-            "<div class='m-reminder__icons'> " +
-            iconTemplate +
-            "</div>" +
-            "</div>" +
-            "</div>" +
-            "</div>" +
+                "<div class='m-mobile-overlay'></div>" +
+                "<div class='m-reminder'>" +
+                    "<div class='m-reminder__form'>" +
+                        "<form class='m-reminder__form-inner col-xs-12'>" +
+                            settings.form +
+                        "</form>" +
+                    "</div>" +
+                    "<div class='m-reminder__inner'>" +
+                        "<div class='m-reminder__reminder-text'>" +
+                            settings.reminderText +
+                        "</div>" +
+                        "<div class='m-reminder__reminder'>" +
+                            "<div class='m-reminder__reminder-circle'></div>" +
+                            "<div class='m-reminder__reminder-circle-border'></div>" +
+                            "<div class='m-reminder__icons'> " +
+                                iconTemplate +
+                            "</div>" +
+                        "</div>" +
+                    "</div>" +
+                "</div>" +
             "</div>");
         var mTemplate = jQuery(template);
         var mOverlay = mTemplate.find('.m-mobile-overlay');
@@ -224,10 +212,31 @@
 
         setPosition();
 
+        mReminderForm.find('.m-reminder__form-submit button').on('click touchstart', function (event) {
+            event.preventDefault();
+            var data = mReminderForm.find('form').serializeArray();
+            if (settings.submitCallback(mReminder, objectifyForm(data))) {
+                $.ajax({
+                    url: settings.ajaxUrl,
+                    method: settings.ajaxMethod,
+                    data: data
+                }).always(function(data) {
+                    if (settings.ajaxCallback(mReminder, data)) close();
+                });
+            }
+        });
+
         settings.onInitForm(mReminderForm);
 
         mReminder.css('z-index', settings.zIndex);
-        mReminder.find('.m-reminder__icons, .m-reminder, .m-reminder__reminder-text, .m-reminder__form, .m-reminder__form-inner').hover(open, close);
+        mReminder.find('.m-reminder__icons, .m-reminder, .m-reminder__reminder-text, .m-reminder__form, .m-reminder__form-inner')
+            .hover(function(event) {
+                if (jQuery(event.target).is('.m-reminder__icons, .m-reminder, .m-reminder__reminder-text, .m-reminder__form, .m-reminder__form-inner'))
+                    open();
+            }, function(event) {
+                if (jQuery(event.target).is('.m-reminder__icons, .m-reminder, .m-reminder__reminder-text, .m-reminder__form, .m-reminder__form-inner'))
+                    close();
+            });
         mReminderReminder.on("touchstart", open);
         mOverlay.on("touchstart click", close);
         mReminderFormClose.on("touchstart click", close);
