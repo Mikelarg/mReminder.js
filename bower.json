@@ -5,7 +5,11 @@
     "Mikhail Murtazin <me@mikhail.email>"
   ],
   "description": "Awesome Reminder for your Page",
-  "main": "",
+  "main": [
+    "src/js/mReminder.min.js",
+    "src/css/mReminder.min.css",
+    "src/font/*"
+  ],
   "keywords": [
     "reminder",
     "js",
@@ -16,5 +20,9 @@
     "bootstrap": "3",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "textarea-autosize": "^0.4.2"
-  }
+  },
+  "ignore": [
+    "bower_components",
+    "examples"
+  ]
 }
