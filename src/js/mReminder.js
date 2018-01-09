@@ -66,7 +66,7 @@
             "    <button class='form-control col-xs-12 m-reminder__form-input'>Отправить</button>" +
             "  </div>",
             openDelay: 200,
-            closeDelay: 1000,
+            closeDelay: 500,
             reminderIconSize: 60,
             reminderFullSize: 320,
             position: {
