@@ -8,28 +8,28 @@ Add reminder to your page
 3. Custom Form Example: https://mikelarg.github.io/mReminder.js/examples/mail/index.html
 
 ## Options:
-* zIndex — z-index of reminder. Default ```999```
-* reminderAnimation — show reminder animation? Default ```true```
+* zIndex — z-index of reminder. Default: ```999```
+* reminderAnimation — show reminder animation? Default: ```true```
 ### Icons
-* icons — class of icons to show in reminder. Default ```["bell-alt", "commenting-o", "mail"]```
-* selectedIcon — first class of icon to show. Default ```"bell-alt"```
+* icons — class of icons to show in reminder. Default: ```["bell-alt", "commenting-o", "mail"]```
+* selectedIcon — first class of icon to show. Default: ```"bell-alt"```
 ### Titles
-* reminderText — bottom reminder message. Default ```"Напомнить о сайте"```
+* reminderText — bottom reminder message. Default: ```"Напомнить о сайте"```
 ### Delays
-* activeDelay — delay before reminder will open. Default ```200```
-* reInitDelay — delay to reinit reminder if window rescale. Default ```600```
-* iconDelay — delay before icon in reminder change. Default ```2500```
-* reminderAnimationDelay — delay before animation (expanding circle and border around reminder) will be start ```3000```
+* activeDelay — delay before reminder will open. Default: ```200```
+* reInitDelay — delay to reinit reminder if window rescale. Default: ```600```
+* iconDelay — delay before icon in reminder change. Default: ```2500```
+* reminderAnimationDelay — delay before animation (expanding circle and border around reminder) will be start. Default: ```3000```
 ### Proportions
-* reminderIconSize — reminder size (width and height). Default ```60```
-* reminderFullSize — form height (max-height). Default ```320```
-* position — reminder position in the window. Can be in percent and in px. Default ```{bottom: '10%', right: '10%'}```
-* formBorderRadius — form border radius. Default ```20```
-* mobileWidth — width of screen when reminder will transform to mobile version. Default ```425```
-* mobileHeight — height of screen when reminder will transform to mobile version. Default ``500```
+* reminderIconSize — reminder size (width and height). Default: ```60```
+* reminderFullSize — form height (max-height). Default: ```320```
+* position — reminder position in the window. Can be in percent and in px. Default: ```{bottom: '10%', right: '10%'}```
+* formBorderRadius — form border radius. Default: ```20```
+* mobileWidth — width of screen when reminder will transform to mobile version. Default: ```425```
+* mobileHeight — height of screen when reminder will transform to mobile version. Default: ```500```
 ### AJAX
-* ajaxUrl — where to send data of form? Default ```""```
-* ajaxMethod — ajax method. Default ```"POST"```
+* ajaxUrl — where to send data of form? Default: ```""```
+* ajaxMethod — ajax method. Default: ```"POST"```
 ### Callbacks
 #### submitCallback
 Called when form submit button pushed
@@ -39,6 +39,7 @@ Called when form submit button pushed
 
 **Return**
 true — if form don't have errors, false — if have
+
 **Default**
 ```js 
 function (mReminder, data) {
@@ -71,6 +72,7 @@ Called when ajax have finished
 
 **Return**
 true — if you want to reminder close, false — if not
+
 **Default**
 ```js
 function (mReminder, data) {
