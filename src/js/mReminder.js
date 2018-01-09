@@ -227,19 +227,7 @@
         settings.onInitForm(mReminderForm);
 
         mReminder.css('z-index', settings.zIndex);
-        mReminder.mouseenter(function (event) {
-            if ($(event.target).hasClass('m-reminder__icons') ||
-                $(event.target).hasClass('m-reminder') ||
-                $(event.target).hasClass('m-reminder__reminder-text') ||
-                $(event.target).hasClass('m-reminder__form') ||
-                $(event.target).hasClass('m-reminder__form-inner')) open();
-        }).mouseleave(function (event) {
-            if ($(event.target).hasClass('m-reminder__icons') ||
-                $(event.target).hasClass('m-reminder') ||
-                $(event.target).hasClass('m-reminder__reminder-text') ||
-                $(event.target).hasClass('m-reminder__form') ||
-                $(event.target).hasClass('m-reminder__form-inner')) close()
-        });
+        mReminder.find('.m-reminder__icons, .m-reminder, .m-reminder__reminder-text, .m-reminder__form, .m-reminder__form-inner').hover(open, close);
         mReminderReminder.on("touchstart", open);
         mOverlay.on("touchstart click", close);
         mReminderFormClose.on("touchstart click", close);
