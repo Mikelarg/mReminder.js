@@ -2,10 +2,16 @@
 Add reminder to your page
 ![mReminder Logo](src/img/logo.jpg)
 
+## Installation
+### [Bower](http://bower.io)
+```
+bower install mReminder.js
+```
+
 ## Examples
-1. Default: https://mikelarg.github.io/mReminder.js/examples/default/index.html
-2. Custom Styles Example: https://mikelarg.github.io/mReminder.js/examples/style/index.html
-3. Custom Form Example: https://mikelarg.github.io/mReminder.js/examples/mail/index.html
+1. Default: [click](https://mikelarg.github.io/mReminder.js/examples/default/index.html) :neckbeard:
+2. Custom Styles Example: [click](https://mikelarg.github.io/mReminder.js/examples/style/index.html) :godmode:
+3. Custom Form Example: [click](https://mikelarg.github.io/mReminder.js/examples/mail/index.html) :eyes:
 
 ## Options:
 * zIndex — z-index of reminder. Default: ```999```
