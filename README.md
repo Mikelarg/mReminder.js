@@ -40,7 +40,7 @@ Called when form submit button pushed
 **Return**
 true — if form don't have errors, false — if have
 **Default**
-``` 
+```js 
 function (mReminder, data) {
     var errorContact = mReminder.find('.m-reminder__form-error_contact');
     var timeContact = mReminder.find('.m-reminder__form-error_time');
@@ -72,7 +72,7 @@ Called when ajax have finished
 **Return**
 true — if you want to reminder close, false — if not
 **Default**
-```
+```js
 function (mReminder, data) {
     mReminder.find('.m-reminder__form input').each(function () {
         jQuery(this).val("");
@@ -85,7 +85,7 @@ function (mReminder, data) {
 * mReminderForm — reminder form element
 
 **Default**
-```
+```js
 function (mReminderForm) {
     mReminderForm.find('.input-group.date').datetimepicker({
         locale: 'ru'
@@ -107,7 +107,7 @@ function (mReminderForm) {
 #### form
 Reminder form template
 **Default**
-```
+```html
 <div class='m-reminder__form-close'>✖</div>
 <h4 class='text-center m-reminder__form-title'>Ваши контактные данные</h4>
 <div class='form-group row col-xs-12 m-reminder__form-group'>
